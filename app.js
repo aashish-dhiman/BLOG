@@ -15,7 +15,7 @@ const app = express();
 app.set("view engine", "ejs");
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(__dirname + "public"));
+app.use(express.static(__dirname + "/public"));
 
 const PORT = 3000 || process.env.PORT;
 
@@ -77,3 +77,5 @@ app.get("/posts/:postName", (req, res) => {
 app.listen(PORT, function () {
     console.log("Server started on port 3000");
 });
+
+module.exports = app;
