@@ -6,4 +6,16 @@
         <%= startingContent %>
     </p>
 
-    <%- include('./partials/footer') %>
+    <% posts.forEach(post=> { %>
+        <h2>
+            <%= post.title %>
+        </h2>
+        <p>
+            <%= post.content.substr(0,100) + "..." %>
+                <a href="/posts/<%=post.title%>">
+                     Read more </a>
+        </p>
+
+                    <% }); %>
+
+                        <%- include('./partials/footer') %>
