@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
 const _ = require("lodash");
+require("dotenv").config();
 
 const app = express();
 
@@ -11,8 +12,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
 
-const mongodb_URI =
-    "mongodb+srv://aashishdhiman88:Aashishd-mongodb@cluster0.9hytptp.mongodb.net/blogDB";
+const mongodb_URI = process.env.MONGODB_URI;
 
 mongoose.connect(mongodb_URI, {
     useNewUrlParser: true,
@@ -57,7 +57,7 @@ app.post("/compose", (req, res) => {
 
 app.post("/delete", async (req, res) => {
     const id = req.body.id;
-    
+
     await Post.findByIdAndDelete(id);
     res.redirect("/");
 });
