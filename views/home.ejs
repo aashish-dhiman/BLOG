@@ -1,10 +1,24 @@
 <%- include('./partials/header') %>
 
     <h1>HOME</h1>
+    <div class="blog-home-section">
+        <h2>Welcome to our blog website!</h2>
+        <ul>
+            <li>
+                <p>Discover captivating articles covering various topics from technology to lifestyle.</p>
+            </li>
+            <li>
+                <p>Stay informed with the latest trends, fascinating discoveries, and expert opinions.</p>
+            </li>
+            <li>
+                <p>Join our community, leave comments, and engage in conversations with fellow readers.</p>
+            </li>
+            <li>
+                <p>Grab a cup of coffee, find a cozy spot, and embark on a journey of discovery with us!</p>
+            </li>
+        </ul>
+    </div>
 
-    <p>
-        <%= startingContent %>
-    </p>
 
     <% posts.forEach(post=> { %>
         <h2>
@@ -12,10 +26,10 @@
         </h2>
         <p>
             <%= post.content.substr(0,100) + "..." %>
-                <a href="/posts/<%=post.title%>">
-                     Read more </a>
+                <a href="/posts/<%=post._id%>">
+                    Read more </a>
         </p>
 
-                    <% }); %>
+        <% }); %>
 
-                        <%- include('./partials/footer') %>
+            <%- include('./partials/footer') %>

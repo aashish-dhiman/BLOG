@@ -7,6 +7,11 @@
     <p>
         <%= postData.content %>
     </p>
+    <form class="deleteForm" action="/delete" method="post">
+        <div>
+            <button class="btn btn-danger" type="submit" name="id" value="<%= postData._id%>">DELETE</button>
+        </div>
+    </form>
 
 
     <%- include('./partials/footer') %>
